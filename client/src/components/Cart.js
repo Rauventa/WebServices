@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import axios from "axios";
 import {PORT, URL} from "../api/api";
+import {Feather} from "@expo/vector-icons";
 
 
 export const Cart = ({navigation}) => {
@@ -29,30 +30,28 @@ export const Cart = ({navigation}) => {
     return (
         <View>
             <TouchableOpacity
-                style={styles.button}
+                style={styles.cart}
                 onPress={goToCart}
             >
-                <Text style={styles.buttonText}>{items ? items.length : 0}</Text>
+                <Feather name="shopping-cart" size={24} color="white" />
+                <Text style={styles.buttonText}>{items.length !== 0 ? items.length : 0}</Text>
             </TouchableOpacity>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    button: {
-        borderRadius: 100,
-        borderWidth: 1,
-        backgroundColor: '#2F3132',
-        width: '90%',
-        height: 'auto',
-        textAlign: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 30
+    cart: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center'
     },
-
+    headerEmail: {
+        textAlign: 'center',
+        fontSize: 15,
+    },
     buttonText: {
-        color: '#FCFCFC'
+        color: '#FCFCFC',
+        marginLeft: 10
     }
 });

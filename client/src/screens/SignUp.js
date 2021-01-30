@@ -30,24 +30,32 @@ export const SignUp = ({navigation}) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.headingText}>Sign up</Text>
+            <View style={styles.headerContainer}>
+                <Text style={styles.headerSmall}>Welcome to</Text>
+                <Text style={styles.headerBig}>Menta</Text>
+            </View>
             <TextInput
                 style={styles.textField}
                 onChangeText={text => setEmail(text)}
                 value={email}
                 placeholder={'Email'}
+                placeholderTextColor="#2F3132"
             />
             <TextInput
                 style={styles.textField}
                 onChangeText={text => setPassword(text)}
                 value={password}
+                secureTextEntry={true}
                 placeholder={'Password'}
+                placeholderTextColor="#2F3132"
             />
             <TextInput
                 style={styles.textField}
                 onChangeText={text => setRepeat(text)}
                 value={repeat}
+                secureTextEntry={true}
                 placeholder={'Repeat password'}
+                placeholderTextColor="#2F3132"
             />
 
             <TouchableOpacity
@@ -56,7 +64,7 @@ export const SignUp = ({navigation}) => {
             >
                 <Text style={styles.buttonText}>Sign Up</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.button}>
+            <TouchableOpacity onPress={() => navigation.navigate('SignIn')} style={styles.buttonTransparent}>
                 <Text>Already registered?</Text>
             </TouchableOpacity>
         </View>
@@ -71,21 +79,32 @@ const styles = StyleSheet.create({
         backgroundColor: '#00EAD0',
     },
 
-    headingText: {
-      fontSize: 36,
-      marginBottom: 40
+    headerSmall: {
+        textAlign: 'center',
+        fontSize: 24,
+        color: '#2F3132',
+        fontWeight: 'normal'
+    },
+
+    headerBig: {
+        textAlign: 'center',
+        fontSize: 58,
+        textTransform: 'uppercase',
+        fontWeight: 'bold',
+        color: '#2F3132',
+        marginBottom: 100
     },
 
     textField: {
         width: '90%',
         height: 'auto',
         textAlign: 'center',
-        paddingVertical: 10,
+        paddingVertical: 20,
         paddingHorizontal: 20,
         marginVertical: 10,
         borderRadius: 100,
         borderWidth: 1,
-        borderColor: '#2F3132'
+        borderColor: '#2F3132',
     },
 
     button: {
@@ -97,11 +116,18 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingVertical: 10,
-        paddingHorizontal: 30
+        paddingVertical: 20,
+        paddingHorizontal: 30,
+        marginBottom: 10,
+        marginTop: 50
+    },
+
+    buttonTransparent: {
+
     },
 
     buttonText: {
-        color: '#FCFCFC'
+        color: '#FCFCFC',
+        textTransform: 'uppercase'
     }
 });

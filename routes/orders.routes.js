@@ -1,6 +1,4 @@
 const {Router} = require('express');
-const config = require('config');
-const {check, validationResult} = require('express-validator');
 const router = Router();
 const Orders = require('../models/Orders');
 const User = require('../models/User');

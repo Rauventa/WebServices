@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Alert} from 'react-native';
 import axios from 'axios';
 import {URL, PORT} from "../api/api";
 
@@ -29,6 +29,15 @@ export const Flower = ({id, name, description, price, count, navigation}) => {
                 price,
                 count: 1
             })
+
+            Alert.alert(
+                `Flower was added`,
+                `${name} flower of ${count} pcs`,
+                [
+                    { text: "Ok",}
+                ],
+                { cancelable: false }
+            );
         } catch (e) {
             console.log(e)
         }
@@ -36,7 +45,13 @@ export const Flower = ({id, name, description, price, count, navigation}) => {
 
     return (
         <View style={styles.card}>
-            <Text>{name}</Text>
+            {/*<Image*/}
+            {/*    style={styles.image}*/}
+            {/*    source={{ uri: 'https://img5.goodfon.ru/wallpaper/nbig/5/8e/wallpaper-background-4k-ultra-hd-roses-bouquet-flowers-vase.jpg' }}*/}
+            {/*/>*/}
+            <Text style={styles.cardName}>{name}</Text>
+            <Text style={styles.description}>{description}</Text>
+            <Text style={styles.price}>{price} $ for {count} piece</Text>
 
             <TouchableOpacity
                 style={styles.button}
@@ -50,12 +65,32 @@ export const Flower = ({id, name, description, price, count, navigation}) => {
 
 const styles = StyleSheet.create({
     card: {
-        width: '80%',
+        width: '100%',
         height: 'auto',
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff',
+        backgroundColor: '#FCFCFC',
+        marginBottom: 30,
+        borderRadius: 10
+    },
+    cardName: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        marginBottom: 10
+    },
+    description: {
+        marginBottom: 15,
+        fontStyle: 'italic',
+    },
+    price: {
+        fontStyle: 'italic',
+        textAlign: 'right',
+        marginBottom: 20
+    },
+    image: {
+      width: 'auto',
+      height: '100%'
     },
     button: {
         borderRadius: 100,
