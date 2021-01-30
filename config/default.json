@@ -1,0 +1,6 @@
+{
+  "port": 5000,
+  "mongoUri": "mongodb+srv://alex:ilyatascerpro2A@cluster0.s90uv.mongodb.net/app?retryWrites=true&w=majority",
+  "jwtSecret": "jwt user entry menta",
+  "adminJwtSecret": "jwt user entry menta admin"
+}
